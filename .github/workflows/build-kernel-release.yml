@@ -559,7 +559,7 @@ jobs:
 
       - name: 🔨 Build Kernel
         id: build
-        uses: WildKernels/OnePlus_KernelSU_SUSFS/.github/actions/build-kernel@main
+        uses: luigimak/OnePlus_KernelSU_SUSFS/.github/actions/build-kernel@main_test
         with:
           op_config_json: ${{ steps.prepare_config.outputs.config_json }}
           ksu_type: ${{ matrix.ksu_type }}
