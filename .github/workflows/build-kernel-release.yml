@@ -83,6 +83,7 @@ on:
           - OP-NORD-4-CE_oos15
           - OP-NORD-CE4-LITE_oos15
           - OP-NORD-3_oos15
+          - OP-NORD-N30-SE_oos15
           - OP-PAD-3-SM8750_oos15
           - OP-PAD-3-MT6897_oos15
           - OP-PAD-2-PRO_oos15
