@@ -38,6 +38,7 @@ on:
           - OP-ACE-3_oos16
           - OP-ACE-2-PRO_oos16
           - OP-ACE-2_oos16
+          - OP-NORD-6_oos16
           - OP-NORD-5_oos16
           - OP-NORD-CE-5_oos16
           - OP-NORD-4_oos16
