@@ -22,28 +22,37 @@ on:
           - OP13S_oos16
           - OP13T_oos16
           - OP12_oos16
+          - OP12-6.1.118_oos16
           - OP12r_oos16
+          - OP12r-5.15.167_oos16
           - OP11_oos16
+          - OP11-5.15.167_oos16
           - OP11r_oos16
           - OP10pro_oos16
           - OP-TURBO-6V_oos16
           - OP-TURBO-6_oos16
           - OP-ACE-6T_oos16
           - OP-ACE-6_oos16
+          - OP-ACE-6-ULTRA_oos16
           - OP-ACE-5-PRO_oos16
           - OP-ACE-5_oos16
+          - OP-ACE-5-6.1.118_oos16
           - OP-ACE-5-ULTRA_oos16
           - OP-ACE-5-RACE_oos16
           - OP-ACE-3-PRO_oos16
           - OP-ACE-3V_oos16
+          - OP-ACE-3V-6.1.118_oos16
           - OP-ACE-3_oos16
+          - OP-ACE-3-5.15.167_oos16
           - OP-ACE-2-PRO_oos16
           - OP-ACE-2V_oos16
           - OP-ACE-2_oos16
           - OP-NORD-6_oos16
           - OP-NORD-5_oos16
+          - OP-NORD-5-6.1.118_oos16
           - OP-NORD-CE-5_oos16
           - OP-NORD-4_oos16
+          - OP-NORD-4-6.1.118_oos16
           - OP-NORD-4-CE_oos16
           - OP-NORD-CE4-LITE_oos16
           - OP-PAD-4_oos16
@@ -57,47 +66,82 @@ on:
           - OP-PAD-MT6983_oos16
           - OP-PAD-LITE_oos16
           - OP-OPEN_oos16
+          - OP-OPEN-5.15.167_oos16
           - OP-PAD-GO-2_oos16
           # OOS15
           - OP13-CPH_oos15
+          - OP13-CPH-6.6.56_oos15
           - OP13-PJZ_oos15
+          - OP13-6.6.30_oos15
           - OP13r_oos15
+          - OP13r-6.1.75_oos15
           - OP13S_oos15
           - OP13T_oos15
+          - OP13T-6.6.56_oos15
           - OP12_oos15
+          - OP12-6.1.75_oos15
           - OP12r_oos15
+          - OP12r-5.15.149_oos15
           - OP11_oos15
+          - OP11-5.15.149_oos15
           - OP11r_oos15
+          - OP11r-5.10.209_oos15
           - OP10t_oos15
+          - OP10t-5.10.226_oos15
+          - OP10t-5.10.209_oos15
           - OP10pro_oos15
+          - OP10pro-5.10.209_oos15
           - OP10r_oos15
           - OP-ACE-5-PRO_oos15
+          - OP-ACE-5-PRO-6.6.30_oos15
           - OP-ACE-5_oos15
+          - OP-ACE-5-6.1.75_oos15
           - OP-ACE-5-ULTRA_oos15
+          - OP-ACE-5-ULTRA-6.6.50_oos15
           - OP-ACE-5-RACE_oos15
           - OP-ACE-3-PRO_oos15
+          - OP-ACE-3-PRO-6.1.75_oos15
           - OP-ACE-3V_oos15
+          - OP-ACE-3V-6.1.75_oos15
           - OP-ACE-3_oos15
+          - OP-ACE-3-5.15.149_oos15
           - OP-ACE-2-PRO_oos15
+          - OP-ACE-2-PRO-5.15.149_oos15
           - OP-ACE-2V_oos15
+          - OP-ACE-2V-5.10.209_oos15
           - OP-ACE-2_oos15
+          - OP-ACE-2-5.10.209_oos15
           - OP-ACE-RACE_oos15
+          - OP-ACE-RACE-5.10.226_oos15
+          - OP-ACE-RACE-5.10.209_oos15
           - OP-ACE_oos15
+          - OP-ACE-5.10.209_oos15
           - OP-NORD-5_oos15
           - OP-NORD-CE-5_oos15
           - OP-NORD-4_oos15
+          - OP-NORD-4-6.1.75_oos15
           - OP-NORD-4-CE_oos15
+          - OP-NORD-4-CE-5.15.167_oos15
+          - OP-NORD-4-CE-5.15.149_oos15
           - OP-NORD-CE4-LITE_oos15
           - OP-NORD-3_oos15
+          - OP-NORD-3-5.10.209_oos15
           - OP-NORD-N30-SE_oos15
           - OP-PAD-3-SM8750_oos15
+          - OP-PAD-3-SM8750-6.6.30_oos15
           - OP-PAD-3-MT6897_oos15
+          - OP-PAD-3-MT6897-6.1.75_oos15
           - OP-PAD-2-PRO_oos15
+          - OP-PAD-2-PRO-6.6.30_oos15
           - OP-PAD-2-SM8650_oos15
+          - OP-PAD-2-SM8650-6.1.75_oos15
           - OP-PAD-PRO_oos15
+          - OP-PAD-PRO-6.1.75_oos15
           - OP-PAD-MT6983_oos15
+          - OP-PAD-MT6983-5.10.209_oos15
           - OP-PAD-LITE_oos15
           - OP-OPEN_oos15
+          - OP-OPEN-5.15.149_oos15
           # OOS14
           - OP12_oos14
           - OP11_oos14
@@ -445,9 +489,46 @@ jobs:
     uses: ./.github/workflows/mirror-toolchains.yml
     secrets: inherit
 
+  prepare_ccache:
+    name: Prepare ccache binary (download once)
+    runs-on: ubuntu-latest
+    steps:
+      # Download the custom ccache binary ONCE for the whole matrix and share it as
+      # an artifact. Previously every parallel matrix job curl'd the same GitHub raw
+      # URL simultaneously, which made GitHub's edge rate-limit / 504 the CI IPs and
+      # fail the whole build (the URL is fine in a browser -- it's the ~30x parallel
+      # hammering that triggers the throttle).
+      - name: Download custom ccache once
+        run: |
+          set -uo pipefail
+          echo "::group::Download ccache"
+          url="https://raw.githubusercontent.com/WildKernels/kernel_patches/refs/heads/main/ccache/ccache-x86-64"
+          ok=0
+          for attempt in 1 2 3 4 5 6; do
+            if curl -LfsS --connect-timeout 30 --max-time 120 -H "User-Agent: Mozilla/5.0" "$url" -o ccache && [ -s ccache ]; then
+              ok=1; break
+            fi
+            echo "attempt $attempt failed (GitHub raw 504/throttle); backing off..."
+            sleep $(( attempt * 5 + RANDOM % 6 ))
+          done
+          if [ "$ok" = 1 ]; then
+            echo "✅ downloaded ccache once for all matrix jobs"
+          else
+            echo "::warning::custom ccache download failed; matrix jobs will fall back to the apt ccache"
+            rm -f ccache
+          fi
+          echo "::endgroup::"
+      - name: Upload ccache artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ccache-binary
+          path: ccache
+          retention-days: 1
+          if-no-files-found: warn
+
   build:
     name: build (${{ matrix.model }}, ${{ matrix.soc }}, ${{ matrix.branch }}, ${{ matrix.manifest }}, ${{ matrix.android_version }}, ${{ matrix.kernel_version }}, ${{ matrix.os_version }}, ${{ matrix.ksu_type }})
-    needs: [set-op-model, mirror_toolchain]
+    needs: [set-op-model, mirror_toolchain, prepare_ccache]
     if: |
       !cancelled() &&
       needs.set-op-model.result == 'success' &&
@@ -477,17 +558,28 @@ jobs:
           echo "✅ Dependencies installed"
           echo "::endgroup::"
 
-      - name: Install ccache with ECS by cctv18
-        run: |
-          # Install ccache with ECS by cctv18
-          set -euo pipefail
-          echo "::group::Install ccache with ECS"
-          curl -LfsS --retry 5 --retry-delay 5 --retry-all-errors --connect-timeout 30 --tcp-fastopen -H "User-Agent: Mozilla/5.0" "https://github.com/WildKernels/kernel_patches/raw/refs/heads/main/ccache/ccache-x86-64" -o ccache
-          sudo cp -f ./ccache /usr/bin/ccache
-          sudo chmod +x /usr/bin/ccache
-          rm -f ./ccache
+      - name: Get prebuilt ccache (downloaded once by prepare_ccache)
+        uses: actions/download-artifact@v8
+        with:
+          name: ccache-binary
+          path: ccache-dl
+        continue-on-error: true
 
-          echo "[DEBUG] Ccache version : $(ccache --version)"
+      - name: Install ccache (ECS by cctv18, shared via artifact)
+        run: |
+          set -uo pipefail
+          echo "::group::Install ccache"
+          if [ -s ccache-dl/ccache ]; then
+            sudo cp -f ccache-dl/ccache /usr/bin/ccache
+            sudo chmod +x /usr/bin/ccache
+            echo "✅ installed custom ccache from shared artifact"
+          else
+            # prepare_ccache could not fetch it (504/throttle); keep the apt ccache
+            # already installed in 'Install Minimal Dependencies'.
+            echo "::warning::shared ccache artifact unavailable; using apt ccache"
+          fi
+          rm -rf ccache-dl
+          echo "[DEBUG] Ccache version : $(ccache --version | head -1)"
           echo "::endgroup::"
 
       - name: ♻️ Configure ccache & LTO cache (bounded)

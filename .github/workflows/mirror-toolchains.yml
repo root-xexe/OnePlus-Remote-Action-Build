@@ -1,9 +1,11 @@
-name: Mirror static toolchains to GitHub Release
+name: 🛠️ ToolChains Generator
 
 permissions:
   contents: write
 
 on:
+  schedule:
+    - cron: '0 0 * * 0' # Every Sunday at 00:00 UTC
   workflow_dispatch:
   workflow_call:
 
@@ -123,8 +125,8 @@ jobs:
                   root = ET.parse(xml_file).getroot()
                   remotes = {r.get('name'): r.get('fetch').rstrip('/') for r in root.findall('remote')}
                   default = root.find('default')
-                  def_remote = default.get('remote')
-                  def_rev = default.get('revision')
+                  def_remote = default.get('remote') if default is not None else None
+                  def_rev = default.get('revision') if default is not None else None
                   
                   for project in root.findall('project'):
                       name = project.get('name')
@@ -140,7 +142,11 @@ jobs:
                         rev = project.get('revision', def_rev)
                         base_url = remotes.get(remote_name, "").rstrip('/')
                         cache_filename = f"{type_label}-{rev}.tar.gz"
-                        
+
+                        if not remote_name or not rev:
+                          print(f"⚠️ Skipping toolchain project '{name}' because remote or revision cannot be resolved.")
+                          continue
+
                         if cache_filename not in unique_toolchains:
                             if "googlesource.com" in base_url:
                                 dl_url = f"{base_url}/{name}/+archive/{rev}.tar.gz"
